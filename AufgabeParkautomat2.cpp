@@ -17,9 +17,9 @@ int main()
 
 	//Eingabe
 	cout << "\t\t\t-----------------Parkautomat-----------------";
-	cout << "\n\t\t\tUm einen Parkschein ueber 15 Minuten zu loesen, ";
-	cout << "\n\t\t\t\tmusst du die Taste p druecken \n\t\t\t";
-	cout << "\tGuthaben eingeben:\n\t\t\t\t";
+	cout << "\n\t\t\tUm einen Parkschein ueber 15 Minuten zu loesen,";
+	cout << "\n\t\t\t\tmusst du die Taste p druecken";
+	cout << "\n\t\t\t\tGuthaben eingeben:\n\t\t\t\t";
   cin >> f_Guthaben;
   //Verarbeitung
 	while(true)
@@ -43,7 +43,7 @@ int main()
         cout << "\n\t\t\tGuthaben: " << f_Guthaben;
         cout << "\n\t\t\tParkzeit: " << i_Zeit;
       }
-      else 
+      else
       {
         cout << "\n\t\t\tGuthaben reicht nicht aus!";
       }
@@ -55,7 +55,7 @@ int main()
   }
   getchar();
 	getchar();
-	return 0;	
+	return 0;
 }
 
 double nettowert(double d_br)
