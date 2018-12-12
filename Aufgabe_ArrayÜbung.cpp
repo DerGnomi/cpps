@@ -23,7 +23,7 @@ int main()
 {
   //ai_speicher muss mindestens so groß sein, wie das kleinste Array
   int ai_Zahlen[10]={ 5,2,6,12,56,31,78,94,21,51 };
-  int ai_Vergleich[5]={ 9,21,12,78,94 };
+  int ai_Vergleich[5]={ 21,21,12,78,94 };
   int ai_speicher[5]={0};
   int i_eingabe;
   int i_stelle;
