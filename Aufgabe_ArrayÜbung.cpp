@@ -24,7 +24,7 @@ int main()
   //ai_speicher muss mindestens so groß sein, wie das kleinste Array
   int ai_Zahlen[10]={ 5,2,6,12,56,31,78,94,21,51 };
   int ai_Vergleich[5]={ 9,21,12,78,94 };
-  int ai_speicher[5] ={0};
+  int ai_speicher[5]={0};
   int i_eingabe;
   int i_stelle;
   //EINGABE
@@ -61,8 +61,7 @@ void ArrayReihenfolgeDirekt(int *p_array1, int laenge1, int *p_array2, int laeng
       if(*(p_array1) == *(p_array2+i))
       {
         ArrayReihenfolgeDirekt(p_array1+1,laenge1,p_array2,laenge2,p_array3,laenge3,true,zaehler++);
-        cout << *(p_array1) << " ";
-        cout << laenge3;
+
       }
     }
   }
@@ -90,7 +89,7 @@ void ArrayReihenfolge(int *p_array1, int laenge1, int *p_array2, int laenge2, in
       break;
     }
   }
-  cout << "Die Zahlen {";
+  cout << "Die Zahlen \n{";
   for(int i=0;i<laenge1;i++)
   {
     if(ai_Reihe[i+1] != 0)
@@ -102,7 +101,7 @@ void ArrayReihenfolge(int *p_array1, int laenge1, int *p_array2, int laenge2, in
       break;
     }
   }
-  cout << "} sind in der gleichen Reihenfolge in {";
+  cout << "}\n sind in der gleichen Reihenfolge in \n{";
   for(int i=0;i<laenge3;i++)
   {
     if(i+1 != laenge3)
@@ -111,7 +110,7 @@ void ArrayReihenfolge(int *p_array1, int laenge1, int *p_array2, int laenge2, in
       cout << *(p_array3+i);
     }
   }
-  cout << "} und in {";
+  cout << "}\n und in \n{";
   for(int i=0;i<laenge2;i++)
   {
     if(i+1 != laenge2)
@@ -120,7 +119,7 @@ void ArrayReihenfolge(int *p_array1, int laenge1, int *p_array2, int laenge2, in
       cout << *(p_array2+i);
     }
   }
-  cout << "} enthalten!";
+  cout << "}\n enthalten!";
 }
 
 void ArrayVergleich(int *p_array1, int laenge1, int *p_array2, int laenge2, int *p_speicher){
