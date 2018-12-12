@@ -21,16 +21,18 @@ void ArrayReihenfolgeDirekt(int *p_array1, int laenge1, int *p_array2, int laeng
 //MainMethode
 int main()
 {
+  //ai_speicher muss mindestens so groß sein, wie das kleinste Array
   int ai_Zahlen[10]={ 5,2,6,12,56,31,78,94,21,51 };
   int ai_Vergleich[5]={ 9,21,12,78,94 };
   int ai_speicher[5] ={0};
   int i_eingabe;
   int i_stelle;
+  //EINGABE
   cout << "Geben Sie eine ganze Zahl zwischen 0 und 100 ein: ";
   cin >> i_eingabe;
   i_stelle = SucheZahl(ai_Zahlen,10,i_eingabe);
   Ausgabe(i_eingabe,i_stelle);
-  cout << " ----- Array vergleich -----  \n\n";
+  cout << " ----- Arrayvergleich Zahlen -----  \n\n";
   ArrayVergleich(ai_Zahlen,10,ai_Vergleich,5,ai_speicher);
   for(int i=0;i<5;i++)
   {
@@ -39,9 +41,11 @@ int main()
       cout << ai_speicher[i] << " ";
     }
   }
-  cout << "\n";
+  cout << "\n\n";
+  cout << " ----- Arrayvergleich Reihenfolge -----  \n\n";
   ArrayReihenfolge(ai_speicher,5,ai_Vergleich,5,ai_Zahlen,10);
-  cout << "\n";
+  cout << "\n\n";
+  cout << " ----- Arrayvergleich direkt folgend -----  \n\n";
   ArrayReihenfolgeDirekt(ai_speicher,5,ai_Vergleich,5,ai_Zahlen,10,false,0);
   cout << "\n";
   return 0;
@@ -57,6 +61,8 @@ void ArrayReihenfolgeDirekt(int *p_array1, int laenge1, int *p_array2, int laeng
       if(*(p_array1) == *(p_array2+i))
       {
         ArrayReihenfolgeDirekt(p_array1+1,laenge1,p_array2,laenge2,p_array3,laenge3,true,zaehler++);
+        cout << *(p_array1) << " ";
+        cout << laenge3;
       }
     }
   }
