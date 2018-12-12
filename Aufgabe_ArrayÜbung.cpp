@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
-#include <time.h> 
+#include <time.h>
 
 //std:: - globalgenutzt
 using namespace std;
@@ -11,9 +11,9 @@ using namespace std;
 //Methodenfestlegung
 int SucheZahl(int *p_array, int laenge, int eingabe);
 void Ausgabe(int eingabe, int vorhanden);
-void ArrayVergleich(int *p_array1, int laenge1, int *p_array2, int laenge2, int *p_speicher); 
+void ArrayVergleich(int *p_array1, int laenge1, int *p_array2, int laenge2, int *p_speicher);
 void ArrayReihenfolge(int *p_array1, int laenge1, int *p_array2, int laenge2, int *p_array3, int laenge3);
-void ArrayReihenfolgeDirket(int *p_array1, int laenge1, int *p_array2, int laenge2, int *p_array3, int laenge3, bool reihe);
+void ArrayReihenfolgeDirekt(int *p_array1, int laenge1, int *p_array2, int laenge2, int *p_array3, int laenge3, bool reihe, int zaehler);
 //GlobaleVaribalen
 //int i_Beispiel = 0;
 
@@ -54,15 +54,16 @@ void ArrayReihenfolgeDirekt(int *p_array1, int laenge1, int *p_array2, int laeng
   {
     for(int i=0;i<laenge2;i++)
     {
-      if(*(p_array1) == *(p_array2+k))
+      if(*(p_array1) == *(p_array2+i))
       {
-        ArrayReihenfolgeDirekt(*(p_array1+1),laenge1,*p_array2,laenge2,*p_array3,laenge3,true,zaehler++);
+        ArrayReihenfolgeDirekt(p_array1+1,laenge1,p_array2,laenge2,p_array3,laenge3,true,zaehler++);
       }
+    }
   }
 }
 
 void ArrayReihenfolge(int *p_array1, int laenge1, int *p_array2, int laenge2, int *p_array3, int laenge3){
-  int ai_Reihe[laenge1]={0};
+  int ai_Reihe[laenge1] ={0};
   int zaehler = 0;
   int pos = 0;
   for(int i=0;i<laenge1;i++)
@@ -132,7 +133,7 @@ void ArrayVergleich(int *p_array1, int laenge1, int *p_array2, int laenge2, int 
   cout << zaehler << " Zahlen sind in den beiden Arrays gleich\n";
 }
 
-int SucheZahl(int *p_array, int laenge, int eingabe){ 
+int SucheZahl(int *p_array, int laenge, int eingabe){
   int i_ausgabe=0;
   for(int i=0; i < laenge; i++)
   {
