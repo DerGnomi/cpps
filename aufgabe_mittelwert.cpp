@@ -13,6 +13,7 @@ int* EingabeArray(int anzahl);
 double Mittelwert(int* pDaten, int laenge);
 void Ausgabe(int* pDaten, int laenge);
 int* Arrayresize(int* pDaten, int laenge, char c);
+
 //MainMethode
 int main()
 {
@@ -38,28 +39,31 @@ int main()
   Ausgabe(pZahlen, laenge);
   cout << "Mittelwert " << Mittelwert(pZahlen, laenge) << "\n\n";
 
-  //Array vergrößern
-  do
-  {
-    cout << "Noch eine Zahl eingeben? (y/n)> ";
+  //Array bearbeiten
+  do{
+    cout << "Zahlen bearbeiten? (y/n)> ";
     cin >> c_taste;
     if(c_taste == 'y')
     {
+      //Vergrößern oder Verkleinern abfragen
       do{
         cout << "Vergrößern oder verkleinern? (g/k)> ";
         cin >> gk_taste;
       } while (gk_taste != 'g' && gk_taste != 'k');
+      //Methodenaufruf zum vergrößern oder verkleinern
       pZahlen = Arrayresize(pZahlen, laenge, gk_taste);
+      //Länge anpassen
       if (gk_taste == 'g')
         laenge++;
       else
         laenge--;
+      //Ausgabe und Mittelwert berechnen
       Ausgabe(pZahlen, laenge);
       cout << "Mittelwert " << Mittelwert(pZahlen, laenge) << "\n\n";
     }
   }while(c_taste == 'y');
 
-  //beenden
+  //beenden und speicher freigeben
   delete[] pZahlen;
   pZahlen = NULL;
   return 0;
@@ -101,6 +105,7 @@ int* Arrayresize(int* pDaten, int laenge, char c){
   int *pNeu = NULL;
   switch(c)
   {
+    //Größer machen
     case 'g':
       pNeu = new int [laenge+1];
       cout << "Neue Zahl: ";
@@ -111,6 +116,7 @@ int* Arrayresize(int* pDaten, int laenge, char c){
       }
       pNeu[laenge] = iNeu;
       break;
+    //Kleiner machen
     case 'k':
       int i_stelle;
       pNeu = new int [laenge-1];
